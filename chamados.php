@@ -11,9 +11,12 @@
 </head>
 <body>
 <div id="main" class="container"> 	
-	<div id="divGeral" style="width:700px"> 
+	<div id="divGeral" style="width:800px"> 
 		<img src="logo.jpg" width="30%"/>
 		<br/>
+		<?php
+			if (isset($_SESSION['autenticado'])){
+		?>
 		<label>Chamados do cliente <?php echo $_SESSION['nome'] ?></label>
 		<table style="width:100%; border: solid 1px">
 		  <tr class="cabecalho">
@@ -25,7 +28,7 @@
 			<th>Prioridade</th>
 			<th width="120px">Data fechamento</th>
 		  </tr>
-		<?php
+		  <?php
 			$usuario = $_SESSION['login'];
 			$nome = $_SESSION['nome'];
 			
@@ -63,8 +66,12 @@
 						 </tr>';
 				}
 			}
-		?>
+		  ?>
 		</table>
+		<a href="logout.php"><input class="botaoSair" value="Sair"/></a>
+		<?php } else { ?>
+			<p>Acesso negado, efetue o <a href="login.php">login</a> para proceguir!</p>
+		<?php } ?>
 	</div> 
 </div>
 </body>

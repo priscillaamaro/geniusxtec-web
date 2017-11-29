@@ -42,6 +42,7 @@
 			 // Valida senha
 			 if($linha[1] === strtoupper($criptoSenha)){
 				//echo "Usuario: $linha[0] - Senha: $linha[1] - Nome: $linha[2].";
+				$_SESSION['autenticado']=true;
 				$_SESSION['login']=$linha[0];
 				$_SESSION['nome']=$linha[2];
 				header("Location: chamados.php");
